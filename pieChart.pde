@@ -44,6 +44,8 @@ class PieChart{
     }
 
     void display(){
+        
+        textSize(10);
 
         if(useCategories){
             noStroke();
@@ -65,7 +67,7 @@ class PieChart{
             end = start + (TWO_PI * (fossil)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            text(name,x,y+50);
+            text(name,x-10,y+60);
 
         }else{
             noStroke();
@@ -101,7 +103,7 @@ class PieChart{
             end = start + (TWO_PI * (nuclear)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            fill(100,255,100);
+            fill(200,255,100);
             start = end;
             end = start + (TWO_PI * (gas)) / total;
             arc(x,y,100,100,start,end,PIE);
@@ -112,12 +114,14 @@ class PieChart{
             end = start + (TWO_PI * (oil)) / total;
             arc(x,y,100,100,start,end,PIE);
 
+            
+
             fill(0);
             start = end;
             end = start + (TWO_PI * (coal)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            text(name,x,y+50);
+            text(name,x-10,y+60);
 
         }
         
@@ -126,6 +130,5 @@ class PieChart{
     }
 
 
-
-
 }
+

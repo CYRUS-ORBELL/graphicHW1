@@ -1,5 +1,6 @@
 //
 PieChart piechart;
+Slider slider;
 StringList countryCodes = new StringList();
 String[] notCountries = {"OWID_AFR","ATA"};
 Table data;
@@ -15,7 +16,10 @@ void setup(){
 
 void draw(){
     background(255);
-    int currentYear = 2024;
+
+    slider = new  Slider(100, 300, 400, 1965, 2025);
+    slider.display();
+    float currentYear = slider.currentYear();
     int year1 = 1965;
     int year2 = 2025;
     int graphWidth = width - 40;
@@ -28,9 +32,10 @@ void draw(){
     int i = 100;
     for(TableRow row : data.rows()){
         String code = row.getString("code");
-        int year = row.getInt("year");
+        float year = row.getFloat("year");
         
-        if(countryCodes.hasValue(code)  && year == 2024){
+        //if(countryCodes.hasValue(code)  && year == 2024){
+        if((code.equals("USA") || code.equals("FRA") || code.equals("CHN")) && year == currentYear){
             float otherRenewables = row.getFloat("other_renewables_twh");
             float bioFuels = row.getFloat("biofuels_twh");
             float solar = row.getFloat("solar_twh");
@@ -53,3 +58,17 @@ void draw(){
 
       
 }
+
+
+void mousePressed() {
+  slider.mousePressed();
+}
+
+void mouseDragged() {
+  slider.mouseDragged();
+}
+
+void mouseReleased() {
+  slider.mouseReleased();
+}
+
