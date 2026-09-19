@@ -74,11 +74,59 @@ class Bar{
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
-
+        }else{
+            float graphHeight = graphBottom - graphTop;
 
             
+            float sizeOfPart = map(oil, 0, highest, 0, graphHeight);
 
-        }else{
+            fill(0);
+            float startingPoint = graphBottom - sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+
+
+            sizeOfPart = map(gas, 0, highest, 0, graphHeight);
+            fill(180, 255, 10);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(coal, 0, highest, 0, graphHeight);
+            fill(140);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(nuclear, 0, highest, 0, graphHeight);
+            fill(255, 255, 10);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(otherRenewables, 0, highest, 0, graphHeight);
+            fill(20, 255, 10);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+            
+            sizeOfPart = map(bioFuels, 0, highest, 0, graphHeight);
+            fill(0, 100, 10);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(solar, 0, highest, 0, graphHeight);
+            fill(255, 255, 10);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(wind, 0, highest, 0, graphHeight);
+            fill(240);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+
+            sizeOfPart = map(hydro, 0, highest, 0, graphHeight);
+            fill(0, 0, 255);
+            startingPoint -= sizeOfPart;
+            rect(x, startingPoint, 5, sizeOfPart);
+            
+            
            
         }
     }

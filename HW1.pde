@@ -12,7 +12,7 @@ PFont labelFont;
 
 void setup(){
     size(1000, 600);
-    titleFont = createFont("SansSerif.bold", 32);
+    
     labelFont = createFont("SansSerif", 14);
 
     textFont(labelFont);
@@ -96,7 +96,7 @@ void draw(){
         } 
     }else{
         
-        StringList countries = new StringList("FRA");
+        StringList countries = new StringList("BRA");
         float highest = getHighestAmount(countries);
         println(highest);
         for(int year = year1; year < year2; year++){
