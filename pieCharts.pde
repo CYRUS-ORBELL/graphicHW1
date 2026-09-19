@@ -46,84 +46,87 @@ class PieChart{
     void display(){
         
         textSize(10);
+        if(total == 0) text("No Data",x,y);
 
         if(useCategories){
             noStroke();
             float start = 0 ;
             //renewables
-            fill(10,101,40);
+            fill(colorMap.get("renewables"));
             float end = (TWO_PI * (renewables) / total);
             arc(x,y,100,100,start,end,PIE);
 
             //nuclear
-            fill(255,255,0);
+            fill(colorMap.get("nuclear"));
             start = end;
             end = start + (TWO_PI * (nuclear)) / total;
             arc(x,y,100,100,start,end,PIE);
 
             //COG
-            fill(74, 65, 42);
+            fill(colorMap.get("fossils"));
             start = end;
             end = start + (TWO_PI * (fossil)) / total;
             arc(x,y,100,100,start,end,PIE);
 
 
             fill(0);
-            text(name,x-10,y+60);
+            textAlign(CENTER, CENTER);
+            text(name,x,y+55);
 
         }else{
             noStroke();
             float start = 0 ;
             
-            fill(140,10,40);
+            fill(colorMap.get("other renewables"));
             float end = (TWO_PI * (otherRenewables) / total);
             arc(x,y,100,100,start,end,PIE);
 
-            fill(0,100,0);
+            fill(colorMap.get("biofuels"));
             start = end;
             end = start + (TWO_PI * (bioFuels)) / total;
             arc(x,y,100,100,start,end,PIE);
 
 
-            fill(255,255,0);
+            fill(colorMap.get("solar"));
             start = end;
             end = start + (TWO_PI * (solar)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            fill(255);
+            fill(colorMap.get("wind"));
             start = end;
             end = start + (TWO_PI * (wind)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            fill(0,0,255);
+            fill(colorMap.get("hydro"));
             start = end;
             end = start + (TWO_PI * (hydro)) / total;
             arc(x,y,100,100,start,end,PIE);
       
-            fill(255,255,0);
+            fill(colorMap.get("nuclear"));
             start = end;
             end = start + (TWO_PI * (nuclear)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            fill(200,255,100);
+            fill(colorMap.get("gas"));
             start = end;
             end = start + (TWO_PI * (gas)) / total;
             arc(x,y,100,100,start,end,PIE);
 
             
-            fill(74, 65, 42);
+            fill(colorMap.get("oil"));
             start = end;
             end = start + (TWO_PI * (oil)) / total;
             arc(x,y,100,100,start,end,PIE);
 
             
 
-            fill(0);
+            fill(colorMap.get("coal"));
             start = end;
             end = start + (TWO_PI * (coal)) / total;
             arc(x,y,100,100,start,end,PIE);
 
-            text(name,x-10,y+60);
+            textAlign(CENTER, CENTER);
+            text(name,x,y+55);
 
         }
         

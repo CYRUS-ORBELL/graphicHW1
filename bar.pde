@@ -50,84 +50,92 @@ class Bar{
     }
 
     void display(){
+        if(total==0){
+            return;
+        }
+        
         if(useCategories){
             float graphHeight = graphBottom - graphTop;
 
             // Fossil fuels
             float sizeOfPart = map(fossil, 0, highest, 0, graphHeight);
 
-            fill(30);
+            fill(colorMap.get("fossils"));
             float startingPoint = graphBottom - sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             // Nuclear
             sizeOfPart = map(nuclear, 0, highest, 0, graphHeight);
 
-            fill(255, 255, 0);
+            fill(colorMap.get("nuclear"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             //Renewables
 
             sizeOfPart = map(renewables, 0, highest, 0, graphHeight);
-            fill(0, 255, 0);
+            fill(colorMap.get("renewables"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
+
+            
 
         }else{
             float graphHeight = graphBottom - graphTop;
 
             
             float sizeOfPart = map(oil, 0, highest, 0, graphHeight);
-
-            fill(0);
+            fill(colorMap.get("oil"));
             float startingPoint = graphBottom - sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
 
 
             sizeOfPart = map(gas, 0, highest, 0, graphHeight);
-            fill(180, 255, 10);
+            fill(colorMap.get("gas"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(coal, 0, highest, 0, graphHeight);
-            fill(140);
+            fill(colorMap.get("coal"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(nuclear, 0, highest, 0, graphHeight);
-            fill(255, 255, 10);
+            fill(colorMap.get("nuclear"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(otherRenewables, 0, highest, 0, graphHeight);
-            fill(20, 255, 10);
+            fill(colorMap.get("other renewables"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
             
             sizeOfPart = map(bioFuels, 0, highest, 0, graphHeight);
-            fill(0, 100, 10);
+            fill(colorMap.get("biofuels"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(solar, 0, highest, 0, graphHeight);
-            fill(255, 255, 10);
+            fill(colorMap.get("solar"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(wind, 0, highest, 0, graphHeight);
-            fill(240);
+            fill(colorMap.get("wind"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
 
             sizeOfPart = map(hydro, 0, highest, 0, graphHeight);
-            fill(0, 0, 255);
+            fill(colorMap.get("hydro"));
             startingPoint -= sizeOfPart;
             rect(x, startingPoint, 5, sizeOfPart);
             
             
            
         }
+        fill(0);
+        textAlign(CENTER,TOP);
+        text(name.toCharArray()[0],x,graphBottom+2);
     }
 }
