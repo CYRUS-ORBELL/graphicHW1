@@ -85,11 +85,13 @@ void setup(){
     for(String code : countryCodes){
         println(code);
         float largest = 0;
-        for(TableRow row : data.rows()){
-            if(code.equals(row.getString("code"))){
-                float total = getTotalEnergy(row);
-                if(total > largest) largest = total;
+        for(int year = 1965;year<2025;year++){
+            RowOfSources currentRow = countryYearRowLookup.get(code+"_"+year);
+            if(currentRow!=null){
+                float sum = getTotalEnergy(currentRow);
+                if(sum>largest) largest = sum;
             }
+
         }
         countryHighestEnergyLookupTable.set(code, largest);
     }
@@ -158,9 +160,9 @@ void draw(){
         text(useRegionsText,width -80, 300+20);
     }else{
         fill(0);
-        text("select up to 8 countries",graphWidth+((width-graphWidth)/2),350);
+        text("select up to 8 countries",graphWidth+((width-graphWidth)/2),300);
         int x  = graphWidth;
-        int y = 400;
+        int y = 310;
         for(String code : countryCodes){
             if(barChartCountries.hasValue(code)){
                 fill(100,255,30);
@@ -179,9 +181,9 @@ void draw(){
             }else{
                 x=x+30;
             }
-            
-            
         }
+        fill(0);
+        
     }
     
    
@@ -341,16 +343,16 @@ void mouseReleased() {
 }
 
 
-float getTotalEnergy(TableRow row){
-    return row.getFloat("other_renewables_twh") +
-           row.getFloat("biofuels_twh") +
-           row.getFloat("solar_twh") +
-           row.getFloat("wind_twh") +
-           row.getFloat("hydro_twh") +
-           row.getFloat("nuclear_twh") +
-           row.getFloat("gas_twh") +
-           row.getFloat("oil_twh") +
-           row.getFloat("coal_twh");
+float getTotalEnergy(RowOfSources row){
+    return row.otherRenewables +
+           row.bioFuels +
+           row.solar +
+           row.wind +
+           row.hydro +
+           row.nuclear +
+           row.gas +
+           row.oil +
+           row.coal;
 }
 
 float getHighestAmount(StringList codes){
