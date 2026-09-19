@@ -287,7 +287,7 @@ void mousePressed() {
     }
     if(!pieMode){
         int makeCountryButtonsx  = graphWidth;
-        int makeCountryButtonsy = 400;
+        int makeCountryButtonsy = 310;
         for(String code : countryCodes){
             if (mouseX > makeCountryButtonsx  && mouseX < makeCountryButtonsx+30 && mouseY > makeCountryButtonsy && mouseY < makeCountryButtonsy+15){
                 if(barChartCountries.hasValue(code)){
