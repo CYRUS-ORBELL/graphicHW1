@@ -67,6 +67,8 @@ class PieChart{
             end = start + (TWO_PI * (fossil)) / total;
             arc(x,y,100,100,start,end,PIE);
 
+
+            fill(0);
             text(name,x-10,y+60);
 
         }else{
